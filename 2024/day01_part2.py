@@ -1,12 +1,13 @@
 import re
+from file_utils import read_lines
+lines = read_lines('./day01_input.txt')
 
 list1, list2 = [], []
 
-with open('./day01_input.txt', 'r') as file:
-    for line in file:
-        pattern = re.compile(r'(?P<item1>\d+)\s+(?P<item2>\d+)')
-        list1.append(int(pattern.match(line).group('item1')))
-        list2.append(int(pattern.match(line).group('item2')))
+for line in lines:
+    pattern = re.compile(r'(?P<item1>\d+)\s+(?P<item2>\d+)')
+    list1.append(int(pattern.match(line).group('item1')))
+    list2.append(int(pattern.match(line).group('item2')))
 
 appearanceMap = {}
 
